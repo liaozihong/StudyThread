@@ -2,19 +2,16 @@ package com.amiba.thread.entity;
 
 import java.util.List;
 
+import com.amiba.thread.entity.ValueObject;
+
 public class Service {
-    private boolean isRunning=true;
+    private String lock;
 
-    public void runMethod(){
-        String anyString=new String();
-        while(isRunning){
-            synchronized (anyString){
+    public Service(String lock) {
+        super();
+        this.lock = lock;
+    }
 
-            }
-        }
-        System.out.println("停下来了");
-    }
-    public void stopMethod(){
-        isRunning=false;
-    }
+
+
 }

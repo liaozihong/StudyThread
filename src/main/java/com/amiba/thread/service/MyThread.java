@@ -1,20 +1,19 @@
 package com.amiba.thread.service;
 
-import com.amiba.thread.entity.MyList;
-import com.amiba.thread.entity.Service;
-import com.amiba.thread.entity.Sub;
+import com.amiba.thread.entity.Tools;
 
-public class MyThread  {
-     private boolean isRunning=true;
+import java.util.Date;
 
-     public void runMethod(){
-         while(isRunning){
-
-         }
-         System.out.println("停下来了");
-     }
-    public void stopMethod(){
-        isRunning=false;
+public class MyThread  extends Thread{
+    @Override
+    public void run() {
+        try{
+            for(int i=0;i<10;i++){
+                System.out.println("在线程A中取值"+Tools.inheritableThreadLocalExt.get());
+                Thread.sleep(100);
+            }
+        }catch (InterruptedException e){
+            e.printStackTrace();
+        }
     }
-
 }
