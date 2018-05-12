@@ -1,13 +1,11 @@
-# 多线程学习
 
-**参考书籍**：Java多线程的核心编程技术  
-----
-简介：个人学习多线程所记录  
-------
-目录  
+目录：  
 [TOC]
 ------------
-
+**参考书籍** ：Java多线程的核心编程技术   
+----
+简介：个人学习多线程所记录；  
+------
 ### 1.Java多线程技能
 #### 1.1 进程和多线程的概念及线程的优点？
   讲到多线程技术时，就不得不提及"进程"这个概念了。百度对进程的接受如下：  
@@ -1914,7 +1912,7 @@ public static void main(String[] args) throws InterruptedException {
     }
     结果为设置的默认值
 ```
-#### 3.4 类InheritableThreadLocal的使用  
+#### 3.4 类InheritableThreadLocal的使用   
 使用类InheritableThreadLocal可以在子线程获取父线程继承下来的值，并且还可进行更改值，例子如下：   
 ``` java
 public class InheritableThreadLocalExt extends InheritableThreadLocal {
@@ -1970,7 +1968,9 @@ public static void main(String[] args) throws InterruptedException {
 在线程A中取值1525949545055我在子线程加的~~~
 在线程A中取值1525949545055我在子线程加的~~~
 ```
-**注意**：在使用InheritableThreadLocal类需要注意一点的是，如果子线程在取得值的同时，主线程将InheritableThreadLocal的值进行更改，那么子线程取到的值依旧是旧的  
+
+**注意**：在使用InheritableThreadLocal类需要注意一点的是，如果子线程在取得值的同时，主线程将InheritableThreadLocal的值进行更改，那么子线程取到的值依旧是旧的 
+
 ----------------------
 
 ### Lock的使用
@@ -2554,7 +2554,7 @@ public void MyObject{
 }
 ```
 此种方法是同步synchronized语句块，虽然效率得到提升，但遇到多线程环境下，还是无法解决得到同一个实例对象的结果。那要如何解决“懒汉模式”的多线程问题呢？   
-###### 使用DCL双检查所机制  
+**使用DCL双检查所机制**    
 ``` java
 public void MyObject{
     private volatile static MyObject myObject;
