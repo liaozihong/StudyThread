@@ -1,13 +1,56 @@
-# 多线程学习  
+# 多线程学习
 
-**参考书籍** ：Java多线程的核心编程技术   
+**参考书籍**：Java多线程的核心编程技术  
 ----
 
 简介：个人学习多线程所记录；  
 ------
 
 目录：  
-[TOC]
+1. Java多线程技能   
+        1.1 进程和多线程的概念及线程的优点  
+        1.2 使用多线程   
+        1.3 currentThread()方法  
+        1.4 isAlive()方法  
+        1.5 sleep()方法  
+        1.6 getId()方法  
+        1.7 停止线程  
+        1.8 暂停线程  
+        1.9 yield()方法  
+        1.10 线程的优先级  
+        1.11 守护线程  
+        1.12 终结者  
+2. 对象及变量的并发访问  
+        2.1 synchronized同步方法  
+        2.2 synchronized同步语句块  
+        2.3 volatile关键字  
+3. 线程间的通信  
+        3.1 等待/通知机制  
+        3.2 方法join()的使用  
+        3.3 类ThreadLocal的使用  
+        3.4 类InheritableThreadLocal的使用  
+4. Lock的使用  
+        4.1 使用ReentrantLock类  
+        4.2 使用ReentrantReadWriteLock类  
+5. 定时器Timer  
+        5.1 定时器Timer的使用  
+6. 单例模式与多线程  
+        6.1 立即加載/“饿汉模式”      
+        6.2 延迟加载/"懒汉模式"    
+        6.3 使用静态内置类实现单例模式  
+        6.4 序列化和反序列化的单例模式实现  
+        6.5 使用static代码块实现单例模式  
+        6.6 使用enum枚举数据类型实现单例模式。  
+        6.7 完善enum枚举实现单例模式  
+7. 拾遗增补  
+        7.1 线程的状态  
+        7.2 线程组  
+        7.3 使线程具有有序性    
+        7.4 SimpleDateFormat非线程安全    
+        7.5 线程中出现异常的处理  
+        7.6 线程组内处理异常  
+        7.7 线程异常处理的传递  
+8. 线程池
 ------------
 
 ### 1.Java多线程技能
@@ -1916,7 +1959,7 @@ public static void main(String[] args) throws InterruptedException {
     }
     结果为设置的默认值
 ```
-#### 3.4 类InheritableThreadLocal的使用   
+#### 3.4 类InheritableThreadLocal的使用  
 使用类InheritableThreadLocal可以在子线程获取父线程继承下来的值，并且还可进行更改值，例子如下：   
 ``` java
 public class InheritableThreadLocalExt extends InheritableThreadLocal {
@@ -1972,9 +2015,7 @@ public static void main(String[] args) throws InterruptedException {
 在线程A中取值1525949545055我在子线程加的~~~
 在线程A中取值1525949545055我在子线程加的~~~
 ```
-
-**注意**：在使用InheritableThreadLocal类需要注意一点的是，如果子线程在取得值的同时，主线程将InheritableThreadLocal的值进行更改，那么子线程取到的值依旧是旧的 
-
+**注意**：在使用InheritableThreadLocal类需要注意一点的是，如果子线程在取得值的同时，主线程将InheritableThreadLocal的值进行更改，那么子线程取到的值依旧是旧的  
 ----------------------
 
 ### Lock的使用
@@ -2558,7 +2599,7 @@ public void MyObject{
 }
 ```
 此种方法是同步synchronized语句块，虽然效率得到提升，但遇到多线程环境下，还是无法解决得到同一个实例对象的结果。那要如何解决“懒汉模式”的多线程问题呢？   
-**使用DCL双检查所机制**    
+###### 使用DCL双检查所机制  
 ``` java
 public void MyObject{
     private volatile static MyObject myObject;
